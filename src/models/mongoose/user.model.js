@@ -43,7 +43,11 @@ const UserSchema = new Schema(
             type: String,
           }, 
     },
+      deletedAt: {
+      type: Date,
+      default: null,
   },
+},
   { timestamps: true }
 );
 

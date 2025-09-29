@@ -9,4 +9,9 @@ export const UserModel = sequelize.define("User", {
     allowNull: false,
     defaultValue: "secretary",
   },
+  },
+{
+  //para eliminacion logica
+  paranoid: true,
+  deletedAt: "deleted_at"
 });

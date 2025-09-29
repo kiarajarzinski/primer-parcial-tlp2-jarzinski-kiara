@@ -12,11 +12,13 @@ Asset.belongsToMany(Category, {
   through: AssetCategory,
   foreignKey: "asset_id",
   as: "categories",
+  onDelete: 'CASCADE'
 });
 Category.belongsToMany(Asset,{
   through: AssetCategory,
   foreignKey: "category_id",
   as: "assets",
+  onDelete: 'CASCADE',
 
 }
 
