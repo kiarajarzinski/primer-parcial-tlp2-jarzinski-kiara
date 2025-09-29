@@ -52,7 +52,7 @@ const UserSchema = new Schema(
 );
 
 UserSchema.virtual('assets', {
-  ref: 'AssetModel',   
+  ref: 'Asset',   
   localField: '_id',   
   foreignField: 'responsible',
   justOne: false        
@@ -60,7 +60,7 @@ UserSchema.virtual('assets', {
 
 
  UserSchema.virtual('categories', {
-  ref: 'CategoryModel',   
+  ref: 'Category',   
   localField: '_id',   
   foreignField: 'categories',
   justOne: false        
