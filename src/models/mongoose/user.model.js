@@ -19,11 +19,48 @@ const UserSchema = new Schema(
       default: "secretary",
     },
     deletedAt: { type: Date, default: null },
-    // ! FALTA COMPLETAR ACA
+
+     profile: {
+
+        employee_number:{
+            type: String,
+            required:true,
+            unique: true,
+        }, 
+         first_name: {
+            type: String,
+            required: true,
+            minLength:2,
+            maxLength:50,
+         },
+         last_name: {
+            type: String,
+            required: true,
+            minLength:2,
+            maxLength:50,
+         },
+          phone: {
+            type: String,
+          }, 
+    },
   },
   { timestamps: true }
 );
 
-// ! FALTA COMPLETAR ACA
+UserSchema.virtual('assets', {
+  ref: 'AssetModel',   
+  localField: '_id',   
+  foreignField: 'responsible',
+  justOne: false        
+});
+
+
+ UserSchema.virtual('categories', {
+  ref: 'CategoryModel',   
+  localField: '_id',   
+  foreignField: 'categories',
+  justOne: false        
+});
+
 
 export const UserModel = model("User", UserSchema);
